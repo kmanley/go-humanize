@@ -13,7 +13,7 @@ const (
 	Week     = 7 * Day
 	Month    = 30 * Day
 	Year     = 12 * Month
-	LongTime = 37 * Year
+	LongTime = 50 * Year
 )
 
 // Time formats a time into a relative string.
@@ -46,22 +46,22 @@ type RelTimeMagnitude struct {
 
 var defaultMagnitudes = []RelTimeMagnitude{
 	{time.Second, "now", time.Second},
-	{2 * time.Second, "1 second %s", 1},
-	{time.Minute, "%d seconds %s", time.Second},
-	{2 * time.Minute, "1 minute %s", 1},
-	{time.Hour, "%d minutes %s", time.Minute},
-	{2 * time.Hour, "1 hour %s", 1},
-	{Day, "%d hours %s", time.Hour},
-	{2 * Day, "1 day %s", 1},
-	{Week, "%d days %s", Day},
-	{2 * Week, "1 week %s", 1},
-	{Month, "%d weeks %s", Week},
-	{2 * Month, "1 month %s", 1},
-	{Year, "%d months %s", Month},
-	{18 * Month, "1 year %s", 1},
-	{2 * Year, "2 years %s", 1},
-	{LongTime, "%d years %s", Year},
-	{math.MaxInt64, "a long while %s", 1},
+	{2 * time.Second, "1s %s", 1},
+	{time.Minute, "%ds %s", time.Second},
+	{2 * time.Minute, "1m %s", 1},
+	{time.Hour, "%dm %s", time.Minute},
+	{2 * time.Hour, "1h %s", 1},
+	{Day, "%dh %s", time.Hour},
+	{2 * Day, "1d %s", 1},
+	{Week, "%dd %s", Day},
+	{2 * Week, "1w %s", 1},
+	{Month, "%dw %s", Week},
+	{2 * Month, "1mo %s", 1},
+	{Year, "%dmo %s", Month},
+	{18 * Month, "1y %s", 1},
+	{2 * Year, "2y %s", 1},
+	{LongTime, "%dy %s", Year},
+	{math.MaxInt64, "-", Year},
 }
 
 // RelTime formats a time into a relative string.
